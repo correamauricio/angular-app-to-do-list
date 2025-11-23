@@ -13,7 +13,7 @@
     <ul class="flex gap-2 flex-col">
       @for (item of todoList; track item) {
         <li class="p-2 pl-4 rounded-lg bg-gray-200 border border-gray-300 flex flex-row gap-2 justify-center items-center">
-          <input [id]="item.id" [(ngModel)]="item.completed" type="checkbox">
+          <input [id]="item.id" (change)="toggleTaskCompletion(item)" type="checkbox">
           <label [for]="item.id" class="grow" [ngClass]="item.completed ? 'text-gray-500 line-through italic' : 'text-gray-800'">{{ item.task }}</label>
           <button (click)="deleteTask(item)" class="w-10 h-10 bg-gray-300 hover:bg-gray-400 rounded-md active:bg-gray-500 flex justify-center items-center"><lucide-icon [img]="Trash2" class="w-6 h-6 text-red-800"></lucide-icon></button>
         </li>
